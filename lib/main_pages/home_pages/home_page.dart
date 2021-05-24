@@ -16,8 +16,6 @@ class _HomePageState extends State<HomePage> {
       children: <Widget>[
         //消息小图标
         Positioned(
-          // top: 10.0,
-          //   left: 15.0,
           child: InkWell(
             child: Container(
               child: Image.asset('assets/images/home_image/home_btn_msg.png'),
@@ -29,8 +27,8 @@ class _HomePageState extends State<HomePage> {
 
         //头像
         Positioned(
-          // top: 15.0,
-          //   left:40.0,
+          top: 15.0,
+          left: 40.0,
           child: Container(
             width: 81.0,
             height: 81.0,
@@ -60,11 +58,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-
         //名字
         Positioned(
-          // top: 90.0,
-          //   left: 40.0,
+          top: 90.0,
+          left: 40.0,
           child: Container(
             width: 81.0,
             padding: const EdgeInsets.fromLTRB(5.0, 2.0, 5.0, 2.0),
@@ -105,8 +102,8 @@ class _HomePageState extends State<HomePage> {
           //left icon
           Container(
             margin: EdgeInsets.only(left: 15.0, top: 10.0),
-            width: 81,
-            height: 81,
+            width: 131,
+            height: 131,
             child: headPart,
           ),
           //center list
@@ -118,7 +115,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           //right icon
-          Container(),
+          Container(
+            width: 50,
+            height: 50,
+            color: Colors.red,
+          ),
         ],
       );
     }
