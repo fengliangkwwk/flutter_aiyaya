@@ -96,24 +96,38 @@ class _HomePageState extends State<HomePage> {
       ],
     );
 
+    //top widget
+
+    Widget _topWidget() {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          //left icon
+          Container(
+            margin: EdgeInsets.only(left: 15.0, top: 10.0),
+            width: 81,
+            height: 81,
+            child: headPart,
+          ),
+          //center list
+          Container(
+            child: HomeClassification(
+              width: 400.0,
+              height: 81.0,
+              defaultIndex: 0,
+            ),
+          ),
+          //right icon
+          Container(),
+        ],
+      );
+    }
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Positioned.fromRect(rect: Rect.fromLTWH(15.0, 10.0, 81.0, 81.0), child: headPart),
-              Positioned.fromRect(
-                rect: Rect.fromLTWH(15.0, 10.0, 400.0, 81.0),
-                child: HomeClassification(
-                  width: 400.0,
-                  height: 81.0,
-                  defaultIndex: 0,
-                ),
-              ),
-            ],
-          ),
+          _topWidget(), //上半部分 widget
         ],
       ),
     );
