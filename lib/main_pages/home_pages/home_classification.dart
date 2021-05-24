@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // ignore: must_be_immutable
 class HomeClassification extends StatefulWidget {
   var defaultIndex; //默认索引
@@ -38,6 +39,7 @@ class _HomeClassificationState extends State<HomeClassification> {
               child: ScrollConfiguration(
                 behavior: CusBehavior(),
                 child: ListView.builder(
+                    physics: ClampingScrollPhysics(), //禁止回弹
                     controller: _controller,
                     itemExtent: 100.0,
                     scrollDirection: Axis.horizontal,
@@ -64,7 +66,7 @@ class _HomeClassificationState extends State<HomeClassification> {
           });
         },
         child: Container(
-            width:  100.0,
+            width: 100.0,
             height: 100.0,
             child: Column(
               children: <Widget>[
@@ -80,11 +82,7 @@ class _HomeClassificationState extends State<HomeClassification> {
                 Container(
                   child: Text(
                     '${names[index]}',
-                    style: TextStyle(
-                        fontSize: 20.0,
-                        color: widget.defaultIndex == index
-                            ? Colors.pink
-                            : Colors.black),
+                    style: TextStyle(fontSize: 20.0, color: widget.defaultIndex == index ? Colors.pink : Colors.black),
                   ),
                 )
               ],
@@ -108,18 +106,16 @@ class _HomeClassificationState extends State<HomeClassification> {
     print('++++++++++++++++++{$windowW}');
 //    double windowH=MediaQuery.of(context).size.height;
     //就算当前item距离屏幕中央的相对偏移量
-    double rlOffset = windowW / 2 - (x + w / 2) + widget.width/2;
+    double rlOffset = windowW / 2 - (x + w / 2) + widget.width / 2;
     //计算_controller应该滚动的偏移量
     double offset = _controller.offset - rlOffset;
-    _controller.animateTo(offset,
-        duration: Duration(milliseconds: 200), curve: Curves.easeInOut);
+    _controller.animateTo(offset, duration: Duration(milliseconds: 200), curve: Curves.easeInOut);
   }
 }
 
 class CusBehavior extends ScrollBehavior {
   @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
+  Widget buildViewportChrome(BuildContext context, Widget child, AxisDirection axisDirection) {
     // if (Platform.isAndroid || Platform.isFuchsia) return child;
     return super.buildViewportChrome(context, child, axisDirection);
   }
