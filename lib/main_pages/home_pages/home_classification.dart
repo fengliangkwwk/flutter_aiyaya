@@ -105,9 +105,10 @@ class _HomeClassificationState extends State<HomeClassification> {
 //    double y=os.dy;
 //   获取屏幕宽高
     double windowW = MediaQuery.of(context).size.width;
+    print('++++++++++++++++++{$windowW}');
 //    double windowH=MediaQuery.of(context).size.height;
     //就算当前item距离屏幕中央的相对偏移量
-    double rlOffset = windowW / 2 - (x + w / 2);
+    double rlOffset = windowW / 2 - (x + w / 2) + widget.width/2;
     //计算_controller应该滚动的偏移量
     double offset = _controller.offset - rlOffset;
     _controller.animateTo(offset,

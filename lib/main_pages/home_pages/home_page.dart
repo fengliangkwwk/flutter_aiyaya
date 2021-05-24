@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_aiyaya/main_pages/home_pages/home_classification.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
 }
-
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -21,8 +19,8 @@ class _HomePageState extends State<HomePage> {
             child: InkWell(
               child: Container(
                 child: Image.asset('assets/images/home_image/home_btn_msg.png'),
-                width: 30.0,
-                height: 30.0,
+                width: ScreenUtil().setWidth(50.0),
+                height: ScreenUtil().setHeight(50.0),
               ),
             ),
         ),
@@ -64,8 +62,8 @@ class _HomePageState extends State<HomePage> {
 
         //名字
         Positioned(
-          top: 90.0,
-            left: 40.0,
+          // top: 90.0,
+          //   left: 40.0,
             child: Container(
               width: 81.0,
               padding: const EdgeInsets.fromLTRB(5.0, 2.0, 5.0, 2.0),
@@ -116,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                    child: HomeClassification(
                      width: 400.0,
                      height: 81.0,
-                     defaultIndex: 2,
+                     defaultIndex: 0,
                    ),
                ),
              ],
